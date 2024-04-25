@@ -16,6 +16,7 @@ public class Questao14 {
         double peso_peixe, excedente, multa;
         System.out.println("Insira o peso do peixe:");
         peso_peixe = scanner.nextFloat();
+        scanner.close();
         excedente = peso_peixe - 50.00;
         multa = excedente * 4;
         System.out.printf("Peso lido: %.2f Kg\n", peso_peixe);
