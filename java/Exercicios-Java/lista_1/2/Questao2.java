@@ -16,6 +16,7 @@ public class Questao2 {
         cotacao_dolar = scanner.nextFloat();
         System.out.println("Insira o valor em dolar a ser convertido em real");
         input_dolar = scanner.nextFloat();
+        scanner.close();
         valor_real = cotacao_dolar * input_dolar;
         System.out.printf("O valor em real é R$ %.2f\n", valor_real);
         
