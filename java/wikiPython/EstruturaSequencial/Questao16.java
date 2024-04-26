@@ -12,7 +12,6 @@ public class Questao16 {
     int custo_lata = 80;
     int tamanho_lata = 18;
     double area_pintada, custo, latas;
-    // int latas;
     Scanner scanner = new Scanner(System.in);
     System.out.println("Insira a quantidade em m² da área a ser pintada");
     area_pintada = scanner.nextFloat();
