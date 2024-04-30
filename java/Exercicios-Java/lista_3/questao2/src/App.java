@@ -22,10 +22,24 @@ public class App {
 			option = scanner.nextInt();
 			switch (option) {
 				case 1:
-				Lampada newLampada = controller.PostLampada();	
-				list.add(newLampada);
-				System.out.print(newLampada);
+				controller.PostLampada();	
 				break;
+				case 2:
+				controller.getAll();
+				break;
+				case 3:
+				controller.getQuantity();
+				break;
+				case 4:
+				System.out.println("Insira a potencia");
+				int input = scanner.nextInt();
+				controller.findByPotencia(input);
+				break;
+				case 5:
+				controller.getByPrice();
+				break;
+				case 6:
+				controller.getStatus();
 				case 0:
 				repeat = false;
 				break;

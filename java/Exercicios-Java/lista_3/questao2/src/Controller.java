@@ -26,7 +26,7 @@ public class Controller {
 		this.listaLampadas = listaLampadas;
 	}
 
-  public Lampada PostLampada() {
+  public void PostLampada() {
     int voltagem, potencia;
     String tipo, cor, marca;
     float preco;
@@ -47,24 +47,25 @@ public class Controller {
 
 		Lampada newLampada = new Lampada(voltagem, potencia, tipo, cor, marca, preco);
 		listaLampadas.add(newLampada);
-		return newLampada;
+		System.out.print(newLampada.toString() + "\n");
 		
   }
   
   // fluxo 2
-  public ArrayList<Lampada> getAll() {
-    return listaLampadas;
+  public void getAll() {
+    listaLampadas.stream().forEach(lampada -> System.out.print(lampada.toString() + "\n"));
   }
 
   // fluxo 3
-  public int getQuantity() {
-    return listaLampadas.size();
+  public void getQuantity() {
+    System.out.print(listaLampadas.size() + "\n");
   }
 
   // fluxo 4
-  public int findByPotencia(int potencia) {
-    return (int) listaLampadas.stream()
+  public void findByPotencia(int potencia) {
+    int quantity = (int) listaLampadas.stream()
               .filter( p -> p.potencia == potencia).count();
+    System.out.print(quantity + "\n");
   }
 
   //fluxo 5
@@ -73,15 +74,15 @@ public class Controller {
     float soma = 0;
     soma = (float) listaLampadas.stream().mapToDouble(Lampada::getPreco).sum();
     float media =  soma / listaLampadas.stream().count();
-    listaLampadas.stream().filter(lampada -> lampada.getPreco() < media).forEach( lampada -> System.out.print(lampada.toString()));
+    listaLampadas.stream().filter(lampada -> lampada.getPreco() < media).forEach( lampada -> System.out.print(lampada.toString()+ "\n"));
   }
 
   //fluxo 6
   public void getStatus() {
     int acesas = (int) listaLampadas.stream().filter(lampada -> lampada.ligada == true).count();
     int apagadas = (int) listaLampadas.stream().filter(lampada -> lampada.ligada == false).count();
-    System.out.printf("Lamapadas acesas: %d", acesas);
-    System.out.printf("Lampadas desligadas: %d", apagadas);
+    System.out.printf("Lamapadas acesas: %d\n", acesas);
+    System.out.printf("Lampadas desligadas: %d\n", apagadas);
   }
 
 
